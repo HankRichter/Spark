@@ -1,4 +1,7 @@
-const pixabayAPIKey = "34479748-2413c4632ab392d08bfdd4ef5"
+const pixabayAPIKey = "34479748-2413c4632ab392d08bfdd4ef5";
+const btn = document.querySelector(".btn");
+const searchWord = document.getElementById("imagetext").value;
+const quoteNumber = document.getElementById("numbertext").value;
 
 function imageFetch() { // this is called by the getUserInput function
   const ranImage = "https://pixabay.com/api/?key=" + pixabayAPIKey + "&q=" + searchWord + "&image_type=photo";
@@ -11,9 +14,9 @@ function imageFetch() { // this is called by the getUserInput function
       globalThis.chosenImageURL = data.hits[oneDeeTwenty].largeImageURL; // only works if the data returns > 19 hits! (the globalThis part is unused atm)
       document.getElementById("image").src = chosenImageURL; 
 
-      // console.log(searchWord);
-      // console.log(data);
-      // console.log(chosenImageURL);
+      console.log(searchWord);
+      console.log(data);
+      console.log(chosenImageURL);
     })
 }
 
@@ -25,28 +28,27 @@ function quoteFetch() { // this is called by the getUserInput function
       return response.json();
     })
     .then(function (data) {
+      console.log(data);
       document.getElementById("quote").innerHTML = ( // this makes the fetched quote display on the page
         "\"" +
-        data[quoteNumber]["text"] +
+        data[quoteNumber].text +
         "\" -" +
-        data[quoteNumber]["author"]);
+        data[quoteNumber].author);
 
-        // console.log(quoteNumber);
-        // console.log(data);
-        // console.log(data[quoteNumber]);
-        // console.log(data[quoteNumber]["text"]);
-        // console.log(data[quoteNumber]["author"]);
+        console.log(quoteNumber);
+        console.log(data[quoteNumber]);
+        console.log(data[quoteNumber]["text"]);
+        console.log(data[quoteNumber]["author"]);
     })
 }
 
 function getUserInput() { // this is called when the user clicks the button
-  globalThis.searchWord = document.getElementById("imagetext").value;
-  globalThis.quoteNumber = document.getElementById("numbertext").value;
   if (isNaN(quoteNumber) || quoteNumber > 1643 || quoteNumber < 0) { quoteNumber = Math.floor(Math.random() * 1643); } // picks a random quote number if the user input is unusable
   imageFetch();
   quoteFetch();
 }
 
+btn.addEventListener("click", getUserInput);
 /*
     work-around, for in case searchWord doesn't get any search results from pixabay.
     it worked before, but I'm not sure if it works anymore, now that variable declarations have moved around
