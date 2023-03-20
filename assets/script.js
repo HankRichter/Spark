@@ -8,7 +8,8 @@ function imageFetch() { // this is called by the getUserInput function
     })
     .then(function (data) {
       var oneDeeTwenty = [Math.floor(Math.random() * 20)];
-      globalThis.chosenImageURL = data.hits[oneDeeTwenty].largeImageURL; // only works if the data returns > 19 hits!
+      globalThis.chosenImageURL = data.hits[oneDeeTwenty].largeImageURL; // only works if the data returns > 19 hits! (the globalThis part is unused atm)
+      document.getElementById("image").src = chosenImageURL; 
 
       // console.log(searchWord);
       // console.log(data);
