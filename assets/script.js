@@ -7,10 +7,15 @@ function imageFetch() { // this is called by the getUserInput function
       return response.json();
     })
     .then(function (data) {
-      console.log(searchWord);
-      console.log(data);
+      var oneDeeTwenty = [Math.floor(Math.random() * 20)];
+      globalThis.chosenImageURL = data.hits[oneDeeTwenty].largeImageURL; // only works if the data returns > 19 hits!
+
+      // console.log(searchWord);
+      // console.log(data);
+      // console.log(chosenImageURL);
     })
 }
+
 
 function quoteFetch() { // this is called by the getUserInput function
   const quoteArray = "https://type.fit/api/quotes";
@@ -19,17 +24,17 @@ function quoteFetch() { // this is called by the getUserInput function
       return response.json();
     })
     .then(function (data) {
-      console.log(quoteNumber);
-      console.log(data);
-      console.log(data[quoteNumber]);
-      console.log(data[quoteNumber]["text"]);
-      console.log(data[quoteNumber]["author"]);
-
       document.getElementById("quote").innerHTML = ( // this makes the fetched quote display on the page
         "\"" +
         data[quoteNumber]["text"] +
         "\" -" +
         data[quoteNumber]["author"]);
+
+        // console.log(quoteNumber);
+        // console.log(data);
+        // console.log(data[quoteNumber]);
+        // console.log(data[quoteNumber]["text"]);
+        // console.log(data[quoteNumber]["author"]);
     })
 }
 
