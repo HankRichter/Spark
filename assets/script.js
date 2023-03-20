@@ -1,51 +1,51 @@
-const ranQuote = "https://type.fit/api/quotes";
+const pixabayAPIKey = "34479748-2413c4632ab392d08bfdd4ef5"
 
-// Simple placeholder to get input (until we get something fancier)
-
-let searchWord = window.prompt("Type the name of something relaxing: ");
-console.log(searchWord);
-
-/*
-pixabay still does what we want if 'searchWord' is null
-
-Small Problem Though: pixabay will return an object with 0 images if
-the string is too long or too weird (like "the smallest whale in the world" or "%%%")
-I made an if statement (commented out at the bottom)
-that I think will make sure the object is not empty in the end
-(idk the name of the relevant object, but otherwise it tested out fine)
-
-(....I think(?) this is a better solution than making sure the user input
-is good when we first get it, so that we only have to fetch(ranImage) once)
-*/
-
-const ranImage = "https://pixabay.com/api/?key=34479748-2413c4632ab392d08bfdd4ef5&q=" + searchWord + "&image_type=photo";
-
-function imageFetch(){
-fetch(ranImage)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  })
+function imageFetch() { // this is called by the getUserInput function
+  const ranImage = "https://pixabay.com/api/?key=" + pixabayAPIKey + "&q=" + searchWord + "&image_type=photo";
+  fetch(ranImage)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(searchWord);
+      console.log(data);
+    })
 }
 
-function quoteFetch(){
-fetch(ranQuote)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  })
+function quoteFetch() { // this is called by the getUserInput function
+  const quoteArray = "https://type.fit/api/quotes";
+  fetch(quoteArray)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(quoteNumber);
+      console.log(data);
+      console.log(data[quoteNumber]);
+      console.log(data[quoteNumber]["text"]);
+      console.log(data[quoteNumber]["author"]);
+
+      document.getElementById("quote").innerHTML = ( // this makes the fetched quote display on the page
+        "\"" +
+        data[quoteNumber]["text"] +
+        "\" -" +
+        data[quoteNumber]["author"]);
+    })
 }
 
-imageFetch();
-quoteFetch();
-
+function getUserInput() { // this is called when the user clicks the button
+  globalThis.searchWord = document.getElementById("imagetext").value;
+  globalThis.quoteNumber = document.getElementById("numbertext").value;
+  if (isNaN(quoteNumber) || quoteNumber > 1643 || quoteNumber < 0) { quoteNumber = Math.floor(Math.random() * 1643); } // picks a random quote number if the user input is unusable
+  imageFetch();
+  quoteFetch();
+}
 
 /*
-if objectFromPixabayWithUnknownName.length = 0{  // idk how to find out the actual name of that object (nor how to identify it so we can name it ourselves)
+    work-around, for in case searchWord doesn't get any search results from pixabay.
+    it worked before, but I'm not sure if it works anymore, now that variable declarations have moved around
+
+if objectFromPixabayWithUnknownName.length = 0 {  // idk how to find out the actual name of that object (nor how to identify it so we can name it ourselves)
 var someSereneWords = [
   "pottery",
   "bakery",
@@ -55,7 +55,7 @@ var someSereneWords = [
   "highland"
 ]
 sereendex = Math.floor(Math.random() * someSereneWords.length);  // get it!? It's an eeendex of serene stuff! XD
-searchWord = someSereneWords[sereendex];
+globalThis.searchWord = someSereneWords[sereendex];
 console.log(someSereneWords);
 console.log(searchWord);
   imageFetch();

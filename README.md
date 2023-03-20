@@ -4,19 +4,44 @@
 
 As a user I want to find a website that will give me a inspirational quote with a calming background image so I can have a quick self care break.
 
+## Acceptance criteria
+
 GVIEN: A calm zen-like application with input areas
 
-WHEN: I enter text into the input box
-THEN: I will get a calming background image 
+WHEN: I click the button
 
-WHEN: I enter a random number
-THEN: I will receive a quote corresponding to that number
+THEN: A calming background image will be displayed
 
-WHEN: I have entered both text into the input and random number
-THEN: A page will be generated with an image
+AND: An inspiring quote will be displayed
 
-WHEN: I like the image and quote
-THEN: I can save the combination into local storage
+AND: The address of the image, along with the content of the quote, along with the quote's index, will be saved in local storage
+
+WHEN: The value in the first text box is a thematic word
+
+THEN: The image that appears will have that theme
+
+WHEN: The value in the second input box is between 0 and 1643
+
+THEN: The quote with that numerical identifier is the displayed quote
+
+## Screencap
+
+<h3 style="text-align: center;">A screencapture of the page in a normal Chrome window:</h3>
+<br />
+
+![spark screencap](/assets/sparkscreencap.png)
+
+## Credits
+
+Web Design by Hank Richter, Laura Strait, and Dennis Inglehart
+
+Images courtesy of [Pixabay](https://pixabay.com/)
+
+Quotes by [type.fit](https://type.fit/api/quotes)
+
+<hr>
+
+# Grading Rubrik (for reference)
 
 ## Project Requirements
 
@@ -130,3 +155,5 @@ This project is graded based on the following criteria:
 
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+
