@@ -4,13 +4,14 @@ display: none;
 
 .image{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: baseline;  
     
 }
 
 .btn{
     padding: 0 10px;
+    margin: 0 55px;
     color:black;
     border-radius: 8px; 
     background-color: #fdddc0;
