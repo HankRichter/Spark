@@ -1,0 +1,29 @@
+.quote-image{
+display: none;
+}
+
+.image{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: baseline;  
+    
+}
+
+.btn{
+    padding: 0 10px;
+    color:black;
+    border-radius: 8px; 
+    background-color: #fdddc0;
+}
+
+.btn:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 2px aliceblue;
+    transform: translateY(0.1rem);
+    transition: transform 150ms;
+    }
+
+.input{
+    padding: 5px;
+    border-radius: 3px;
+}
