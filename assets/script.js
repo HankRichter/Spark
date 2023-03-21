@@ -2,6 +2,8 @@ const pixabayAPIKey = "34479748-2413c4632ab392d08bfdd4ef5";
 const btn = document.querySelector(".btn");
 const searchWord = document.getElementById("imagetext").value;
 const quoteNumber = document.getElementById("numbertext").value;
+const quoteImage = document.querySelector(".quote-image");
+const hero = document.querySelector('.hero')
 
 function imageFetch() { // this is called by the getUserInput function
   const ranImage = "https://pixabay.com/api/?key=" + pixabayAPIKey + "&q=" + searchWord + "&image_type=photo";
@@ -29,20 +31,18 @@ function quoteFetch() { // this is called by the getUserInput function
     })
     .then(function (data) {
       console.log(data);
-      document.getElementById("quote").innerHTML = ( // this makes the fetched quote display on the page
-        "\"" +
-        data[quoteNumber].text +
-        "\" -" +
-        data[quoteNumber].author);
-
+    const quote =  "\"" + data[quoteNumber]["text"] + "\" -" + data[quoteNumber].author;
+      document.getElementById("quote").innerHTML = quote;
         console.log(quoteNumber);
         console.log(data[quoteNumber]);
         console.log(data[quoteNumber]["text"]);
         console.log(data[quoteNumber]["author"]);
     })
-}
+  }
 
 function getUserInput() { // this is called when the user clicks the button
+  quoteImage.style.display = "block";
+  hero.style.display = "none";
   if (isNaN(quoteNumber) || quoteNumber > 1643 || quoteNumber < 0) { quoteNumber = Math.floor(Math.random() * 1643); } // picks a random quote number if the user input is unusable
   imageFetch();
   quoteFetch();
