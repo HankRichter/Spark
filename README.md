@@ -41,10 +41,9 @@ Quotes by [type.fit](https://type.fit/api/quotes)
 
 Hero Photo: https://unsplash.com/photos/M-xaOaCzy_M
 
-Header and CSS styling provided by: https://tailwindui.com/components/marketing/sections/header
+Header and CSS styling provided by: https://tailwindui.com/components/marketing/sections/header & https://tailwindui.com/
 
 <hr>
-
 
 ## Project Requirements
 
