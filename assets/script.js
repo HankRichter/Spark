@@ -1,54 +1,56 @@
 const pixabayAPIKey = "34479748-2413c4632ab392d08bfdd4ef5";
-const btn = document.querySelector(".btn");
-const searchWord = document.getElementById("imagetext").value;
-const quoteNumber = document.getElementById("numbertext").value;
+const btn = document.getElementById("btn");
+const searchWord = document.getElementById("imagetext");
+const quoteNumber = document.getElementById("numbertext");
 const quoteImage = document.querySelector(".quote-image");
-const hero = document.querySelector('.hero')
+const hero = document.querySelector(".hero");
+const quote1 = document.getElementById("quote");
+const image = document.getElementById("image");
+const oneDeeTwenty = [Math.floor(Math.random() * 20)];
+const quoteArray = "https://type.fit/api/quotes";
 
-function imageFetch() { // this is called by the getUserInput function
-  const ranImage = "https://pixabay.com/api/?key=" + pixabayAPIKey + "&q=" + searchWord + "&image_type=photo";
+function imageFetch() {
+  // this is called by the getUserInput function
+  const ranImage =
+    "https://pixabay.com/api/?key=" +
+    pixabayAPIKey +
+    "&q=" +
+    searchWord.value +
+    "&image_type=photo";
   fetch(ranImage)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      var oneDeeTwenty = [Math.floor(Math.random() * 20)];
-      globalThis.chosenImageURL = data.hits[oneDeeTwenty].largeImageURL; // only works if the data returns > 19 hits! (the globalThis part is unused atm)
-      document.getElementById("image").src = chosenImageURL; 
-
-      console.log(searchWord);
       console.log(data);
+      console.log(searchWord.value);
+      const chosenImageURL = data.hits[oneDeeTwenty].largeImageURL; // only works if the data returns > 19 hits! (the globalThis part is unused atm)
       console.log(chosenImageURL);
-    })
+      console.log(oneDeeTwenty);
+      image.src = chosenImageURL;
+    });
 }
 
-
-function quoteFetch() { // this is called by the getUserInput function
-  const quoteArray = "https://type.fit/api/quotes";
+function quoteFetch() {
+  // this is called by the getUserInput function
   fetch(quoteArray)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
-    const quote =  "\"" + data[quoteNumber]["text"] + "\" -" + data[quoteNumber].author;
-      document.getElementById("quote").innerHTML = quote;
-        console.log(quoteNumber);
-        console.log(data[quoteNumber]);
-        console.log(data[quoteNumber]["text"]);
-        console.log(data[quoteNumber]["author"]);
-    })
-  }
-
-function getUserInput() { // this is called when the user clicks the button
-  quoteImage.style.display = "block";
-  hero.style.display = "none";
-  if (isNaN(quoteNumber) || quoteNumber > 1643 || quoteNumber < 0) { quoteNumber = Math.floor(Math.random() * 1643); } // picks a random quote number if the user input is unusable
-  imageFetch();
-  quoteFetch();
+      hero.style.display = "none";
+      quoteImage.style.display = "block";
+      const quote =
+        data[quoteNumber.value].text + data[quoteNumber.value].author;
+      quote1.innerHTML = quote;
+    });
 }
 
-btn.addEventListener("click", getUserInput);
+btn.addEventListener("click", function () {
+  quoteFetch();
+  imageFetch();
+});
 /*
     work-around, for in case searchWord doesn't get any search results from pixabay.
     it worked before, but I'm not sure if it works anymore, now that variable declarations have moved around

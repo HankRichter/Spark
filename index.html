@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./assets/script.js" defer></script>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="./assets/styles.css" />
     <title>Spark</title>
 </head>
 <body>
-    <main class="hero">
-
-    <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+    <main>
+    <section class="hero">
+      <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
         <img src="./assets/image/bhushan-sadani-M-xaOaCzy_M-unsplash.jpg" alt="picture of spark" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center">
         <svg viewBox="0 0 1097 845" aria-hidden="true" class="hidden transform-gpu blur-3xl sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:w-[68.5625rem]">
           <path fill="url(#10724532-9d81-43d2-bb94-866e98dd6e42)" fill-opacity=".2" d="M301.174 646.641 193.541 844.786 0 546.172l301.174 100.469 193.845-356.855c1.241 164.891 42.802 431.935 199.124 180.978 195.402-313.696 143.295-588.18 284.729-419.266 113.148 135.13 124.068 367.989 115.378 467.527L811.753 372.553l20.102 451.119-530.681-177.031Z" />
@@ -42,11 +41,11 @@
           <br/>
 
         <section class="image">
-            <input type="text" id="imagetext" class ="input" name="imagetext" placeholder="Descriptor">
-            <button type="button" class="btn mt-6 text-lg leading-8 text-gray-300">Search</button>
-            <input type="text" id="numbertext" class ="input" name="numbertext" placeholder="Number 1-1600">
+            <input type="text" id="imagetext" class ="input" name="imagetext" placeholder="Descriptor"/>
+            <button type="button" id="btn" class="mt-6 text-lg leading-8 text-gray-300">Search</button>
+            <input type="text" id="numbertext" class ="input" name="numbertext" placeholder="Number 1-1600"/>
         </section>
-        
+      </section> 
         <section class="quote-image">
             <div>
                 <img id="image" src="#" alt="stock photo">
@@ -55,5 +54,6 @@
             <p>Site made with love by...</p>
         </section>
 </main>
+<script src="./assets/script.js" defer></script>
 </body>
 </html>
