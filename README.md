@@ -39,6 +39,10 @@ Images courtesy of [Pixabay](https://pixabay.com/)
 
 Quotes by [type.fit](https://type.fit/api/quotes)
 
+Hero Photo: https://unsplash.com/photos/M-xaOaCzy_M
+
+Header and CSS styling provided by: https://tailwindui.com/components/marketing/sections/header
+
 <hr>
 
 # Grading Rubrik (for reference)
