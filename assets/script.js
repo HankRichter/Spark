@@ -7,6 +7,8 @@ const quoteImage = document.querySelector(".quote-image");
 const hero = document.querySelector(".hero");
 const quote1 = document.getElementById("quote");
 const image = document.getElementById("image");
+const save = document.getElementById("save");
+const goBack = document.getElementById("goback");
 const oneDeeTwenty = [Math.floor(Math.random() * 20)];
 const quoteArray = "https://type.fit/api/quotes";
 let favoriteCombinations =
@@ -17,7 +19,7 @@ const pictureQuote = {
   chosenQuote: null,
 };
 
-function postToLocalStorage(pictureQuote) {
+function postToLocalStorage() {
   if (favoriteCombinations) {
     favoriteCombinations.push(pictureQuote);
     localStorage.setItem("picture-quote", JSON.stringify(favoriteCombinations));
@@ -68,5 +70,11 @@ function quoteFetch() {
 btn.addEventListener("click", function () {
   quoteFetch();
   imageFetch();
-  postToLocalStorage(pictureQuote);
+});
+
+save.addEventListener("click", postToLocalStorage);
+
+goBack.addEventListener("click", function () {
+  hero.style.display = "block";
+  quoteImage.style.display = "none";
 });
