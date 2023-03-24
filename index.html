@@ -13,25 +13,24 @@
     <main>
     <section class="hero">
       <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 h-screen">
-        <img src="./assets/image/bhushan-sadani-M-xaOaCzy_M-unsplash.jpg" alt="picture of spark" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center">
-      
+        <button id="LSBtn" class="absolute top-10 right-10 h-10 w-10 bg-rose-300">Favorite projects</button>
+        <img src="./assets/image/bhushan-sadani-M-xaOaCzy_M-unsplash.jpg" alt="picture of Spark" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl lg:mx-0">
             <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Spark</h1>
-            <p class="mt-6 text-lg leading-8 text-gray-300">Type the name of something relaxing on the left.</p>  
-            <p class="mt-6 text-lg leading-8 text-gray-300">Type a number on the right.</p>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Input a descriptive word of your liking, you can also leave it blank for a random picture to appear. Followed by a number between 1-1600 to get a quote assigned to that number.</p>  
           </div>
           <br/>
 
         <section class="image">
             <input type="text" id="imagetext" class ="input" name="imagetext" placeholder="Descriptor"/>
-            <button type="button" id="btn" class="mt-6 text-lg leading-8 text-gray-300">Search</button>
+            <button type="button" id="btn" class="mx-8 text-lg leading-8 text-gray-300">Search</button>
             <input type="text" id="numbertext" class ="input" name="numbertext" placeholder="Number 1-1600"/>
         </section>
       </section> 
         <section class="quote-image">
             <div>
-                <img id="image" src="#" alt="stock photo">
+                <img class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 h-screen" id="image" src="#" alt="stock photo">
                 <p id="quote">placeholder quote</p>
             </div>
             <p>Web Design by Hank Richter, Laura Strait, and Dennis Inglehart</p>
