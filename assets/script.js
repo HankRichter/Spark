@@ -7,6 +7,8 @@ const quoteImage = document.querySelector(".quote-image");
 const hero = document.querySelector(".hero");
 const quote1 = document.getElementById("quote");
 const image = document.getElementById("image");
+const save = document.getElementById("save");
+const goBack = document.getElementById("goback");
 const oneDeeTwenty = [Math.floor(Math.random() * 20)];
 const quoteArray = "https://type.fit/api/quotes";
 let favoriteCombinations =
@@ -17,7 +19,10 @@ const pictureQuote = {
   chosenQuote: null,
 };
 
-function postToLocalStorage(pictureQuote) {
+function postToLocalStorage() {
+  for (let i = 0; i < favoriteCombinations.length; i++) {
+    const LSBtn = document.createElement("button");
+  }
   if (favoriteCombinations) {
     favoriteCombinations.push(pictureQuote);
     localStorage.setItem("picture-quote", JSON.stringify(favoriteCombinations));
@@ -58,7 +63,10 @@ function quoteFetch() {
       hero.style.display = "none";
       quoteImage.style.display = "block";
       const quote =
-        data[quoteNumber.value].text + data[quoteNumber.value].author;
+        '"' +
+        data[quoteNumber.value].text +
+        '" -' +
+        data[quoteNumber.value].author;
       pictureQuote.chosenQuote = quote;
       console.log(pictureQuote.chosenQuote);
       quote1.innerHTML = quote;
@@ -66,8 +74,13 @@ function quoteFetch() {
 }
 
 btn.addEventListener("click", function () {
-  
   quoteFetch();
   imageFetch();
-  postToLocalStorage(pictureQuote);
+});
+
+save.addEventListener("click", postToLocalStorage);
+
+goBack.addEventListener("click", function () {
+  hero.style.display = "block";
+  quoteImage.style.display = "none";
 });

@@ -13,7 +13,7 @@
     <main>
     <section class="hero">
       <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 h-screen">
-        <button id="LSBtn" class="absolute top-10 right-10 h-10 w-10 bg-rose-300">Favorite projects</button>
+        <button id="LSBtn" class="btn absolute top-10 right-10 h-10 w-25">Favorite 1</button>
         <img src="./assets/image/bhushan-sadani-M-xaOaCzy_M-unsplash.jpg" alt="picture of Spark" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl lg:mx-0">
@@ -22,18 +22,23 @@
           </div>
           <br/>
 
-        <section class="image">
-            <input type="text" id="imagetext" class ="input" name="imagetext" placeholder="Descriptor"/>
-            <button type="button" id="btn" class="mx-8 text-lg leading-8 text-gray-300">Search</button>
-            <input type="text" id="numbertext" class ="input" name="numbertext" placeholder="Number 1-1600"/>
-        </section>
+        <div class="image flex-wrap mx-auto max-w-2xl lg:mx-0">
+            <input type="text" id="imagetext" class ="input my-5 mr-5 md:m-0" name="imagetext" placeholder="Descriptor"/>
+            <button id="btn" class="btn m-5 text-lg leading-8">Search</button>
+            <input type="text" id="numbertext" class ="input my-5 mr-5 md:m-0" name="numbertext" placeholder="Number 1-1600"/>
+        </div>
       </section> 
         <section class="quote-image">
-            <div>
-                <img class="relative object-fill isolate overflow-hidden bg-gray-900 py-24 sm:py-32 px-8" id="image" src="#" alt="stock photo">
-                <p id="quote">placeholder quote</p>
+            <div class="relative">
+                <img class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 h-screen w-screen object-contain" id="image" src="#" alt="stock photo">
+              <div class="flex flex-col justify-center m-auto w-full absolute sm:bottom-[80px] bottom-[120px]">
+                  <p id="quote" class=" flex justify-center m-auto w-full text-white">placeholder quote</p>
+                  <div class="flex justify-center m-auto w-full text-sm sm:text-base">
+                    <button  class="btn mr-4"id="save">Save!</button>
+                    <button  class="btn" id="goback">Go Back</button>
+                  </div>
+              </div>
             </div>
-            <p>Web Design by Hank Richter, Laura Strait, and Dennis Inglehart</p>
         </section>
 </main>
 <script src="./assets/script.js" defer></script>
