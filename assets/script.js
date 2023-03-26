@@ -74,7 +74,6 @@ function quoteFetch() {
 }
 
 btn.addEventListener("click", function () {
-  
   quoteFetch();
   imageFetch();
 });
