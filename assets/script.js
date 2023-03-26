@@ -20,6 +20,9 @@ const pictureQuote = {
 };
 
 function postToLocalStorage() {
+  for (let i = 0; i < favoriteCombinations.length; i++) {
+    const LSBtn = document.createElement("button");
+  }
   if (favoriteCombinations) {
     favoriteCombinations.push(pictureQuote);
     localStorage.setItem("picture-quote", JSON.stringify(favoriteCombinations));
@@ -60,7 +63,10 @@ function quoteFetch() {
       hero.style.display = "none";
       quoteImage.style.display = "block";
       const quote =
-        data[quoteNumber.value].text + data[quoteNumber.value].author;
+        '"' +
+        data[quoteNumber.value].text +
+        '" -' +
+        data[quoteNumber.value].author;
       pictureQuote.chosenQuote = quote;
       console.log(pictureQuote.chosenQuote);
       quote1.innerHTML = quote;
